@@ -69,7 +69,7 @@ local function MakeDraggable(topbarobject, object)
 		function(input)
 			if
 				input.UserInputType == Enum.UserInputType.MouseMovement or
-					input.UserInputType == Enum.UserInputType.Touch
+				input.UserInputType == Enum.UserInputType.Touch
 			then
 				DragInput = input
 			end
@@ -183,30 +183,51 @@ function Flux:Window(text, bottom,mainclr,toclose)
 
 	ContainerFolder.Name = "ContainerFolder"
 	ContainerFolder.Parent = MainFrame
-	
+
 	MakeDraggable(Drag,MainFrame)
 	MakeDraggable(LeftFrame,MainFrame)
 	MainFrame:TweenSize(UDim2.new(0, 706, 0, 484), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-	
+
 	local uitoggled = false
 	UserInputService.InputBegan:Connect(
 		function(io, p)
 			if io.KeyCode == CloseBind then
-				if uitoggled == false then
-					MainFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-					wait(.6)
-					FluxLib.Enabled = false
-					uitoggled = true
-				else
-					MainFrame:TweenSize(UDim2.new(0, 706, 0, 484), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-					FluxLib.Enabled = true
-					wait(0.6)
+				if uitoggled then
 					uitoggled = false
+					if FluxLib.Enabled then
+
+						TweenService:Create(
+							MainFrame,
+							TweenInfo.new(
+								0.6
+							),
+							{
+								Size = UDim2.fromOffset(0, 0)
+							}
+						):Play()
+						wait(.6)
+						FluxLib.Enabled = false
+						wait()
+					else
+						FluxLib.Enabled = false
+						TweenService:Create(
+							MainFrame,
+							TweenInfo.new(
+								0.6
+							),
+							{
+								Size = UDim2.fromOffset(706, 484)
+							}
+						):Play()
+						wait(.6)
+						wait()
+					end
+					uitoggled = true
 				end
 			end
 		end
 	)
-	
+
 	function Flux:Notification(desc,buttontitle)
 		for i, v in next, MainFrame:GetChildren() do
 			if v.Name == "NotificationBase" then
@@ -307,7 +328,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 		NotificationDesc.TextSize = 15.000
 		NotificationDesc.TextWrapped = true
 		NotificationDesc.TextTransparency = 1
-		
+
 		CloseBtn.MouseEnter:Connect(function()
 			TweenService:Create(
 				CloseBtn,
@@ -323,9 +344,9 @@ function Flux:Window(text, bottom,mainclr,toclose)
 				{TextTransparency = 0.3}
 			):Play()
 		end)
-		
+
 		CloseBtn.MouseButton1Click:Connect(function()
-			
+
 			TweenService:Create(
 				NotificationDesc,
 				TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
@@ -346,35 +367,35 @@ function Flux:Window(text, bottom,mainclr,toclose)
 				TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 				{BackgroundTransparency = 1}
 			):Play()
-			
+
 			wait(.4)
 			CloseBtn.Visible = false
 			NotificationFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 
 			wait(.2)
-			
+
 			TweenService:Create(
 				NotificationBase,
 				TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 				{BackgroundTransparency = 1}
 			):Play()
-			
+
 			wait(.2)
-			
+
 			NotificationBase.Visible = false
 		end)
 
-		
+
 		TweenService:Create(
 			NotificationBase,
 			TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 			{BackgroundTransparency = 0.550}
 		):Play()
-		
+
 		wait(.1)
-		
+
 		NotificationFrame:TweenSize(UDim2.new(0, 400, 0, 214), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-		
+
 		wait(.4)
 		TweenService:Create(
 			NotificationDesc,
@@ -436,7 +457,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 		TabTitle.TextSize = 15.000
 		TabTitle.TextXAlignment = Enum.TextXAlignment.Left
 		TabTitle.TextTransparency = .3
-		
+
 		local Container = Instance.new("ScrollingFrame")
 		local ContainerLayout = Instance.new("UIListLayout")
 
@@ -458,7 +479,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 		ContainerLayout.Parent = Container
 		ContainerLayout.SortOrder = Enum.SortOrder.LayoutOrder
 		ContainerLayout.Padding = UDim.new(0, 15)
-		
+
 		if fs == false then
 			fs = true
 			TabTitle.TextTransparency = 0
@@ -466,7 +487,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Tab.BackgroundTransparency = 0
 			Container.Visible = true
 		end
-		
+
 		Tab.MouseButton1Click:Connect(function()
 			for i, v in next, ContainerFolder:GetChildren() do
 				if v.Name == "Container" then
@@ -613,7 +634,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			ArrowIco.Size = UDim2.new(0, 28, 0, 24)
 			ArrowIco.Image = "http://www.roblox.com/asset/?id=6034818372"
 			ArrowIco.ImageTransparency = .3
-			
+
 			Button.MouseEnter:Connect(function()
 				TweenService:Create(
 					Title,
@@ -621,7 +642,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					{TextTransparency = 0}
 				):Play()
 			end)
-			
+
 			Button.MouseLeave:Connect(function()
 				TweenService:Create(
 					Title,
@@ -629,11 +650,11 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					{TextTransparency = 0.3}
 				):Play()
 			end)
-			
+
 			Button.MouseButton1Click:Connect(function()
 				pcall(callback)
 			end)
-			
+
 			ArrowBtn.MouseButton1Click:Connect(function()
 				if BtnDescToggled == false then
 					Button:TweenSize(UDim2.new(0, 457, 0, 74), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
@@ -856,8 +877,8 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			ArrowIco.Size = UDim2.new(0, 28, 0, 24)
 			ArrowIco.Image = "http://www.roblox.com/asset/?id=6034818372"
 			ArrowIco.ImageTransparency = .3
-			
-		    Toggle.MouseEnter:Connect(function()
+
+			Toggle.MouseEnter:Connect(function()
 				TweenService:Create(
 					Title,
 					TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
@@ -892,7 +913,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 				Toggled = not Toggled
 				pcall(callback, Toggled)
 			end)
-			
+
 			ArrowBtn.MouseButton1Click:Connect(function()
 				if ToggleDescToggled == false then
 					Toggle:TweenSize(UDim2.new(0, 457, 0, 74), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
@@ -997,11 +1018,11 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			end
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
-		
+
 		function ContainerContent:Slider(text,desc,min,max,start,callback)
 			local SliderFunc = {}
 			local SliderDescToggled = false
-                        local dragging = false
+			local dragging = false
 			if desc == "" then
 				desc = "There is no description for this slider."
 			end
@@ -1143,7 +1164,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Value.TextSize = 15.000
 			Value.TextTransparency = 0.300
 			Value.TextXAlignment = Enum.TextXAlignment.Right
-			
+
 			ArrowBtn.MouseButton1Click:Connect(function()
 				if SliderDescToggled == false then
 					Slider:TweenSize(UDim2.new(0, 457, 0, 101), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
@@ -1246,49 +1267,47 @@ function Flux:Window(text, bottom,mainclr,toclose)
 				end
 				SliderDescToggled = not SliderDescToggled
 			end)
-			
-				local function move(input)
-					local pos =
-						UDim2.new(
-							math.clamp((input.Position.X - SlideFrame.AbsolutePosition.X) / SlideFrame.AbsoluteSize.X, 0, 1),
-							-6,
+
+			local function move(input)
+				local pos =
+					UDim2.new(
+						math.clamp((input.Position.X - SlideFrame.AbsolutePosition.X) / SlideFrame.AbsoluteSize.X, 0, 1),
+						-6,
 						-1.30499995,
-							0
-						)
-					local pos1 =
-						UDim2.new(
-							math.clamp((input.Position.X - SlideFrame.AbsolutePosition.X) / SlideFrame.AbsoluteSize.X, 0, 1),
-							0,
-							0,
-							3
-						)
-					CurrentValueFrame:TweenSize(pos1, "Out", "Sine", 0.1, true)
-					SlideCircle:TweenPosition(pos, "Out", "Sine", 0.1, true)
-					local value = math.floor(((pos.X.Scale * max) / max) * (max - min) + min)
-					Value.Text = tostring(value)
-					pcall(callback, value)
-				end
-				SlideCircle.InputBegan:Connect(
-					function(input)
-						if input.UserInputType == Enum.UserInputType.MouseButton1 then
-							dragging = true
-						end
-					end
-				)
-				SlideCircle.InputEnded:Connect(
-					function(input)
-						if input.UserInputType == Enum.UserInputType.MouseButton1 then
-							dragging = false
-						end
-					end
-				)
-				game:GetService("UserInputService").InputChanged:Connect(
+						0
+					)
+				local pos1 =
+					UDim2.new(
+						math.clamp((input.Position.X - SlideFrame.AbsolutePosition.X) / SlideFrame.AbsoluteSize.X, 0, 1),
+						0,
+						0,
+						3
+					)
+				CurrentValueFrame:TweenSize(pos1, "Out", "Sine", 0.1, true)
+				SlideCircle:TweenPosition(pos, "Out", "Sine", 0.1, true)
+				local value = math.floor(((pos.X.Scale * max) / max) * (max - min) + min)
+				Value.Text = tostring(value)
+				pcall(callback, value)
+			end
+			SlideCircle.InputBegan:Connect(
 				function(input)
-					if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-						move(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1 then
+						dragging = true
 					end
 				end
-				)
+			)
+			SlideCircle.InputEnded:Connect(
+				function(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1 then
+						dragging = false
+					end
+				end
+			)
+			game:GetService("UserInputService").InputChanged:Connect(function(input)
+				if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+					move(input)
+				end
+			end)
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 			function SliderFunc:Change(tochange)
 				CurrentValueFrame.Size = UDim2.new((tochange or 0) / max, 0, 0, 3)
@@ -1396,7 +1415,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			DropLayout.Parent = DropItemHolder
 			DropLayout.SortOrder = Enum.SortOrder.LayoutOrder
 			DropLayout.Padding = UDim.new(0, 2)
-			
+
 			Dropdown.MouseEnter:Connect(function()
 				TweenService:Create(
 					Title,
@@ -1413,7 +1432,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 				):Play()
 			end)
 
-			
+
 			Dropdown.MouseButton1Click:Connect(function()
 				if DropToggled == false then
 					Title.Text = Selected
@@ -1496,12 +1515,12 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					wait(.4)
 					Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 				end
-			DropToggled = not DropToggled
+				DropToggled = not DropToggled
 			end)
-			
+
 			for i,v in next, list do
 				ItemCount = ItemCount + 1
-				
+
 				if ItemCount == 1 then
 					FrameSize = 78
 				elseif ItemCount == 2 then
@@ -1511,24 +1530,24 @@ function Flux:Window(text, bottom,mainclr,toclose)
 				end
 				local Item = Instance.new("TextButton")
 				local ItemCorner = Instance.new("UICorner")
-				
-			Item.Name = "Item"
-			Item.Parent = DropItemHolder
-			Item.BackgroundColor3 = Color3.fromRGB(64, 68, 75)
-			Item.ClipsDescendants = true
-			Item.Size = UDim2.new(0, 427, 0, 25)
-			Item.AutoButtonColor = false
-			Item.Font = Enum.Font.Arial
-			Item.Text = v
-			Item.TextColor3 = Color3.fromRGB(255, 255, 255)
-			Item.TextSize = 15.000
-			Item.TextTransparency = 0.300
 
-			ItemCorner.CornerRadius = UDim.new(0, 4)
-			ItemCorner.Name = "ItemCorner"
+				Item.Name = "Item"
+				Item.Parent = DropItemHolder
+				Item.BackgroundColor3 = Color3.fromRGB(64, 68, 75)
+				Item.ClipsDescendants = true
+				Item.Size = UDim2.new(0, 427, 0, 25)
+				Item.AutoButtonColor = false
+				Item.Font = Enum.Font.Arial
+				Item.Text = v
+				Item.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Item.TextSize = 15.000
+				Item.TextTransparency = 0.300
+
+				ItemCorner.CornerRadius = UDim.new(0, 4)
+				ItemCorner.Name = "ItemCorner"
 				ItemCorner.Parent = Item
 				DropItemHolder.CanvasSize = UDim2.new(0, 0, 0, DropLayout.AbsoluteContentSize.Y)
-				
+
 				Item.MouseEnter:Connect(function()
 					TweenService:Create(
 						Item,
@@ -1544,7 +1563,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						{TextTransparency = 0.3}
 					):Play()
 				end)
-				
+
 				Item.MouseButton1Click:Connect(function()
 					pcall(callback, v)
 					Title.Text = text
@@ -1588,11 +1607,11 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					):Play()
 					wait(.4)
 					Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
-					
+
 				end)
 			end
 			function DropFunc:Rename(Text)
-				
+
 			end
 			function DropFunc:Add(addtext)
 				ItemCount = ItemCount + 1
@@ -1791,7 +1810,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			local ColorPickerInput = nil
 			local ColorInput = nil
 			local HueInput = nil
-			
+
 			local Colorpicker = Instance.new("Frame")
 			local ColorpickerCorner = Instance.new("UICorner")
 			local Title = Instance.new("TextLabel")
@@ -1843,7 +1862,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
-			
+
 
 			ColorpickerBtn.Name = "ColorpickerBtn"
 			ColorpickerBtn.Parent = Title
@@ -2017,7 +2036,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			ToggleBtn.Text = ""
 			ToggleBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
 			ToggleBtn.TextSize = 14.000
-			
+
 			ColorpickerBtn.MouseEnter:Connect(function()
 				TweenService:Create(
 					Title,
@@ -2033,7 +2052,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					{TextTransparency = 0.3}
 				):Play()
 			end)
-		 	
+
 			ColorpickerBtn.MouseButton1Click:Connect(function()
 				if ColorPickerToggled == false then
 					ColorSelection.Visible = true
@@ -2090,7 +2109,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 				end
 				ColorPickerToggled = not ColorPickerToggled
 			end)
-			
+
 
 			local function UpdateColorPicker(nope)
 				BoxColor.BackgroundColor3 = Color3.fromHSV(ColorH, ColorS, ColorV)
@@ -2129,19 +2148,17 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						ColorInput =
 							RunService.RenderStepped:Connect(
 								function()
-								local ColorX =
-									(math.clamp(Mouse.X - Color.AbsolutePosition.X, 0, Color.AbsoluteSize.X) /
+									local ColorX =(math.clamp(Mouse.X - Color.AbsolutePosition.X, 0, Color.AbsoluteSize.X) /
 										Color.AbsoluteSize.X)
-								local ColorY =
-									(math.clamp(Mouse.Y - Color.AbsolutePosition.Y, 0, Color.AbsoluteSize.Y) /
+									local ColorY =(math.clamp(Mouse.Y - Color.AbsolutePosition.Y, 0, Color.AbsoluteSize.Y) /
 										Color.AbsoluteSize.Y)
 
-								ColorSelection.Position = UDim2.new(ColorX, 0, ColorY, 0)
-								ColorS = ColorX
-								ColorV = 1 - ColorY
+									ColorSelection.Position = UDim2.new(ColorX, 0, ColorY, 0)
+									ColorS = ColorX
+									ColorV = 1 - ColorY
 
-								UpdateColorPicker(true)
-							end
+									UpdateColorPicker(true)
+								end
 							)
 					end
 				end
@@ -2171,15 +2188,14 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						HueInput =
 							RunService.RenderStepped:Connect(
 								function()
-								local HueY =
-									(math.clamp(Mouse.Y - Hue.AbsolutePosition.Y, 0, Hue.AbsoluteSize.Y) /
+									local HueY =(math.clamp(Mouse.Y - Hue.AbsolutePosition.Y, 0, Hue.AbsoluteSize.Y) /
 										Hue.AbsoluteSize.Y)
 
-								HueSelection.Position = UDim2.new(0.48, 0, HueY, 0)
-								ColorH = 1 - HueY
+									HueSelection.Position = UDim2.new(0.48, 0, HueY, 0)
+									ColorH = 1 - HueY
 
-								UpdateColorPicker(true)
-							end
+									UpdateColorPicker(true)
+								end
 							)
 					end
 				end
@@ -2298,7 +2314,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			LineCorner.CornerRadius = UDim.new(0, 4)
 			LineCorner.Name = "LineCorner"
 			LineCorner.Parent = Line
-			
+
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
 		function ContainerContent:Label(text)
@@ -2334,7 +2350,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
-			
+
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
 		function ContainerContent:Textbox(text,desc,disapper,callback)
@@ -2462,7 +2478,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			ArrowIco.Selectable = true
 			ArrowIco.Size = UDim2.new(0, 28, 0, 24)
 			ArrowIco.Image = "http://www.roblox.com/asset/?id=6034818372"
-			
+
 			TextBox.FocusLost:Connect(
 				function(ep)
 					if ep then
@@ -2475,7 +2491,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					end
 				end
 			)
-			
+
 			ArrowBtn.MouseButton1Click:Connect(function()
 				if TextboxDescToggled == false then
 					Textbox:TweenSize(UDim2.new(0, 457, 0, 81), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
@@ -2647,7 +2663,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			BindLabel.TextSize = 15.000
 			BindLabel.TextTransparency = 0.300
 			BindLabel.TextXAlignment = Enum.TextXAlignment.Right
-			
+
 			Bind.MouseEnter:Connect(function()
 				TweenService:Create(
 					Title,
@@ -2735,16 +2751,14 @@ function Flux:Window(text, bottom,mainclr,toclose)
 				end
 			)
 
-			game:GetService("UserInputService").InputBegan:connect(
-			function(current, pressed)
+			game:GetService("UserInputService").InputBegan:connect(function(current, pressed)
 				if not pressed then
 					if current.KeyCode.Name == Key then
 						pcall(callback)
 					end
 				end
-			end
-			)
-			
+			end)
+
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
 		return ContainerContent
