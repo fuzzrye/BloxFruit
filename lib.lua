@@ -40,7 +40,7 @@ local TextButton_3 = Instance.new("TextButton")
 --Properties:
 
 BangHub.Name = "BangHub"
-BangHub.Parent = game.Players.LocalPlayer.PlayerGui
+BangHub.Parent = game.CoreGui
 
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = BangHub
