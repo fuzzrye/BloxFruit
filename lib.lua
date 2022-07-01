@@ -40,7 +40,7 @@ local TextButton_3 = Instance.new("TextButton")
 --Properties:
 
 BangHub.Name = "BangHub"
-BangHub.Parent = game.CoreGui
+BangHub.Parent = game.Players.LocalPlayer.PlayerGui
 
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = BangHub
@@ -394,6 +394,10 @@ function library:window(title1, title2, key)
 			
 			dropdownClone.TextButton.MouseButton1Click:Connect(function()
 				dropdownClone.Frame.Visible = not dropdownClone.Frame.Visible
+				
+				dropdownClone.TextButton.Drop.Visible = not dropdownClone.Frame.Visible
+				
+				dropdownClone.TextButton.Up.Visible = dropdownClone.Frame.Visible
 			end)
 			
 			for i, v in pairs(arrays) do
