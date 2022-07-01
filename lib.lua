@@ -58,10 +58,11 @@ Title.BackgroundColor3 = Color3.fromRGB(24, 27, 40)
 Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 566, 0, 39)
 Title.Font = Enum.Font.ArialBold
-Title.Text = "BangHub<br/><font size = '10'>Blox Fruit</font>"
+Title.Text = "%s<br/><font size = '10'>%s</font>"
 Title.TextColor3 = Color3.fromRGB(255, 85, 0)
 Title.TextScaled = true
 Title.TextSize = 14.000
+Title.RichText = true
 Title.RichText = true
 Title.TextWrapped = true
 Title.TextXAlignment = Enum.TextXAlignment.Left
@@ -316,7 +317,13 @@ local library = {}
 local Toggles = {}
 
 function library:window(title1, title2, key)
-	key = key or Enum.KeyCode.LeftControl
+	key = key or Enum.KeyCode.RightControl
+	
+	UserInputService.InputBegan:Connect(function(i, p)
+		if i.KeyCode == key then
+			MainFrame.Visible = not MainFrame.Visible
+		end
+	end)
 	
 	Title.Text = Title.Text:format(title1, title2)
 
@@ -462,17 +469,6 @@ function library:window(title1, title2, key)
 			game.Debris:AddItem(notifyClone, 0)
 		end)
 	end
-	
-	UserInputService.InputBegan:Connect(function(i, p)
-		if p then
-			return
-		end
-		if i.KeyCode == key then
-			print(i.KeyCode == key, key)
-			MainFrame.Visible = not MainFrame.Visible
-		end
-	end)
-
 	return window
 end
 
