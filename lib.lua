@@ -316,6 +316,8 @@ local library = {}
 local Toggles = {}
 
 function library:window(title1, title2, key)
+	key = key or Enum.KeyCode.LeftControl
+	
 	Title.Text = Title.Text:format(title1, title2)
 
 	local window = {}
@@ -465,7 +467,8 @@ function library:window(title1, title2, key)
 		if p then
 			return
 		end
-		if i.KeyCode == key or i.KeyCode == Enum.KeyCode.LeftControl then
+		if i.KeyCode == key then
+			print(i.KeyCode == key, key)
 			MainFrame.Visible = not MainFrame.Visible
 		end
 	end)
