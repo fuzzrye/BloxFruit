@@ -318,6 +318,8 @@ local function MakeDraggable(topbarobject, object)
 	local DragInput = nil
 	local DragStart = nil
 	local StartPosition = nil
+	
+	print(topbarobject)
 
 	local function Update(input)
 		local Delta = input.Position - DragStart
