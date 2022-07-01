@@ -195,30 +195,13 @@ function Flux:Window(text, bottom,mainclr,toclose)
 				if uitoggled then
 					uitoggled = false
 					if FluxLib.Enabled then
-
-						TweenService:Create(
-							MainFrame,
-							TweenInfo.new(
-								0.6
-							),
-							{
-								Size = UDim2.fromOffset(0, 0)
-							}
-						):Play()
+						MainFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 						wait(.6)
 						FluxLib.Enabled = false
 						wait()
 					else
 						FluxLib.Enabled = false
-						TweenService:Create(
-							MainFrame,
-							TweenInfo.new(
-								0.6
-							),
-							{
-								Size = UDim2.fromOffset(706, 484)
-							}
-						):Play()
+						MainFrame:TweenSize(UDim2.new(0, 706, 0, 484), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 						wait(.6)
 						wait()
 					end
