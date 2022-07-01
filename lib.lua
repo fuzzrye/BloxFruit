@@ -1590,6 +1590,9 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					
 				end)
 			end
+			function DropFunc:Rename(Text)
+				
+			end
 			function DropFunc:Add(addtext)
 				ItemCount = ItemCount + 1
 
@@ -1725,6 +1728,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			function DropFunc:Clear()
 				Title.Text = text
 				FrameSize = 0
+				Selected = text
 				ItemCount = 0
 				for i, v in next, DropItemHolder:GetChildren() do
 					if v.Name == "Item" then
