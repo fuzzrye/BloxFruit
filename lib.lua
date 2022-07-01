@@ -5,7 +5,7 @@ local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
-local CloseBind = Enum.KeyCode.RightControl
+local CloseBind = Enum.KeyCode.LeftControl
 
 local FluxLib = Instance.new("ScreenGui")
 FluxLib.Name = "BangHub"
