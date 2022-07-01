@@ -188,7 +188,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 	MakeDraggable(LeftFrame,MainFrame)
 	MainFrame:TweenSize(UDim2.new(0, 706, 0, 484), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 
-	local uitoggled = false
+	local uitoggled = true
 	UserInputService.InputBegan:Connect(
 		function(io, p)
 			if io.KeyCode == CloseBind then
