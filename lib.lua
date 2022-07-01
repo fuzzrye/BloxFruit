@@ -42,13 +42,14 @@ local TextButton_3 = Instance.new("TextButton")
 --Properties:
 
 BangHub.Name = "BangHub"
-BangHub.Parent = game.CoreGui
+BangHub.Parent = game.Players.LocalPlayer.PlayerGui
 
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = BangHub
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
 MainFrame.BorderSizePixel = 0
+MainFrame.ClipsDescendants = true
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 MainFrame.Size = UDim2.new(0, 566, 0, 315)
 
@@ -65,7 +66,6 @@ Title.TextSize = 14.000
 Title.RichText = true
 Title.RichText = true
 Title.TextWrapped = true
-Title.Draggable = true
 Title.TextXAlignment = Enum.TextXAlignment.Left
 
 buttonFrames.Name = "buttonFrames"
@@ -318,8 +318,6 @@ local function MakeDraggable(topbarobject, object)
 	local DragInput = nil
 	local DragStart = nil
 	local StartPosition = nil
-	
-	print(topbarobject)
 
 	local function Update(input)
 		local Delta = input.Position - DragStart
