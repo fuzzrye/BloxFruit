@@ -198,7 +198,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						MainFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 						FluxLib.Enabled = false
 					else
-						FluxLib.Enabled = false
+						FluxLib.Enabled = true
 						MainFrame:TweenSize(UDim2.new(0, 706, 0, 484), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 					end
 					
