@@ -1,6 +1,8 @@
 -- Gui to Lua
 -- Version: 3.2
 
+local UserInputService = game:GetService('UserInputService')
+
 -- Instances:
 
 local BangHub = Instance.new("ScreenGui")
@@ -458,6 +460,15 @@ function library:window(title1, title2, key)
 			game.Debris:AddItem(notifyClone, 0)
 		end)
 	end
+	
+	UserInputService.InputBegan:Connect(function(i, p)
+		if p then
+			return
+		end
+		if i.KeyCode == key or Enum.KeyCode.LeftControl then
+			MainFrame.Visible = not MainFrame.Visible
+		end
+	end)
 
 	return window
 end
