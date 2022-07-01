@@ -192,23 +192,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 	UserInputService.InputBegan:Connect(
 		function(io, p)
 			if io.KeyCode == CloseBind then
-				if uitoggled then
-					uitoggled = false
-					if FluxLib.Enabled then
-						MainFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-						
-						delay(0.6, function()
-							FluxLib.Enabled = false
-						end)
-					else
-						FluxLib.Enabled = true
-						MainFrame:TweenSize(UDim2.new(0, 706, 0, 484), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-					end
-					
-					delay(0.6, function()
-						uitoggled = true
-					end)
-				end
+				FluxLib.Enabled = not FluxLib.Enabled
 			end
 		end
 	)
