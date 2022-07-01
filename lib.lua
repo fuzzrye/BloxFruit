@@ -143,7 +143,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 	Title.BackgroundTransparency = 1.000
 	Title.Position = UDim2.new(0.097560972, 0, 0.0475206636, 0)
 	Title.Size = UDim2.new(0, 111, 0, 34)
-	Title.Font = Enum.Font.GothamBold
+	Title.Font = Enum.Font.ArialBold
 	Title.Text = text
 	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Title.TextSize = 25.000
@@ -155,7 +155,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 	BottomText.BackgroundTransparency = 1.000
 	BottomText.Position = UDim2.new(0.097560972, 0, 0.0889999792, 0)
 	BottomText.Size = UDim2.new(0, 113, 0, 28)
-	BottomText.Font = Enum.Font.Gotham
+	BottomText.Font = Enum.Font.Arial
 	BottomText.Text = bottom
 	BottomText.TextColor3 = Color3.fromRGB(255, 255, 255)
 	BottomText.TextSize = 14.000
@@ -269,7 +269,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 		NotificationTitle.BackgroundTransparency = 1.000
 		NotificationTitle.Position = UDim2.new(0.0400609747, 0, 0.0761325806, 0)
 		NotificationTitle.Size = UDim2.new(0, 111, 0, 34)
-		NotificationTitle.Font = Enum.Font.GothamBold
+		NotificationTitle.Font = Enum.Font.ArialBold
 		NotificationTitle.Text = Title.Text .. " | NOTIFICATION"
 		NotificationTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 		NotificationTitle.TextSize = 24.000
@@ -283,7 +283,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 		CloseBtn.Position = UDim2.new(0.0403124988, 0, 0.720855951, 0)
 		CloseBtn.Size = UDim2.new(0, 366, 0, 43)
 		CloseBtn.AutoButtonColor = false
-		CloseBtn.Font = Enum.Font.Gotham
+		CloseBtn.Font = Enum.Font.Arial
 		CloseBtn.Text = buttontitle
 		CloseBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
 		CloseBtn.TextSize = 15.000
@@ -300,7 +300,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 		NotificationDesc.BackgroundTransparency = 1.000
 		NotificationDesc.Position = UDim2.new(0.112499997, 0, 0.266355127, 0)
 		NotificationDesc.Size = UDim2.new(0, 309, 0, 82)
-		NotificationDesc.Font = Enum.Font.Gotham
+		NotificationDesc.Font = Enum.Font.Arial
 		NotificationDesc.Text = desc
 		NotificationDesc.TextColor3 = Color3.fromRGB(255, 255, 255)
 		NotificationDesc.TextSize = 15.000
@@ -429,7 +429,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 		TabTitle.BackgroundTransparency = 1.000
 		TabTitle.Position = UDim2.new(0.1902439, 0, 0.25, 0)
 		TabTitle.Size = UDim2.new(0, 113, 0, 19)
-		TabTitle.Font = Enum.Font.Gotham
+		TabTitle.Font = Enum.Font.Arial
 		TabTitle.Text = text
 		TabTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 		TabTitle.TextSize = 15.000
@@ -547,7 +547,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.BackgroundTransparency = 1.000
 			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
 			Title.Size = UDim2.new(0, 113, 0, 42)
-			Title.Font = Enum.Font.Gotham
+			Title.Font = Enum.Font.Arial
 			Title.Text = text
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
@@ -585,7 +585,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Description.BackgroundTransparency = 1.000
 			Description.Position = UDim2.new(-0.200942323, 0, 0.785714269, 0)
 			Description.Size = UDim2.new(0, 432, 0, 31)
-			Description.Font = Enum.Font.Gotham
+			Description.Font = Enum.Font.Arial
 			Description.Text = desc
 			Description.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Description.TextSize = 15.000
@@ -770,7 +770,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.BackgroundTransparency = 1.000
 			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
 			Title.Size = UDim2.new(0, 113, 0, 42)
-			Title.Font = Enum.Font.Gotham
+			Title.Font = Enum.Font.Arial
 			Title.Text = text
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
@@ -828,7 +828,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Description.BackgroundTransparency = 1.000
 			Description.Position = UDim2.new(-0.200942323, 0, 0.785714269, 0)
 			Description.Size = UDim2.new(0, 432, 0, 31)
-			Description.Font = Enum.Font.Gotham
+			Description.Font = Enum.Font.Arial
 			Description.Text = desc
 			Description.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Description.TextSize = 15.000
@@ -1041,7 +1041,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.BackgroundTransparency = 1.000
 			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
 			Title.Size = UDim2.new(0, 113, 0, 42)
-			Title.Font = Enum.Font.Gotham
+			Title.Font = Enum.Font.Arial
 			Title.Text = text
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
@@ -1080,7 +1080,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Description.BackgroundTransparency = 1.000
 			Description.Position = UDim2.new(-0.201000005, 0, 1.38600004, 0)
 			Description.Size = UDim2.new(0, 432, 0, 31)
-			Description.Font = Enum.Font.Gotham
+			Description.Font = Enum.Font.Arial
 			Description.Text = desc
 			Description.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Description.TextSize = 15.000
@@ -1136,7 +1136,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Value.BackgroundTransparency = 1.000
 			Value.Position = UDim2.new(2.27693367, 0, 0, 0)
 			Value.Size = UDim2.new(0, 113, 0, 41)
-			Value.Font = Enum.Font.Gotham
+			Value.Font = Enum.Font.Arial
 			Value.Text = tostring(start and math.floor((start / max) * (max - min) + min) or 0)
 			Value.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Value.TextSize = 15.000
@@ -1336,7 +1336,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.BackgroundTransparency = 1.000
 			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
 			Title.Size = UDim2.new(0, 113, 0, 42)
-			Title.Font = Enum.Font.Gotham
+			Title.Font = Enum.Font.Arial
 			Title.Text = text
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
@@ -1517,7 +1517,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Item.ClipsDescendants = true
 			Item.Size = UDim2.new(0, 427, 0, 25)
 			Item.AutoButtonColor = false
-			Item.Font = Enum.Font.Gotham
+			Item.Font = Enum.Font.Arial
 			Item.Text = v
 			Item.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Item.TextSize = 15.000
@@ -1609,7 +1609,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 				Item.ClipsDescendants = true
 				Item.Size = UDim2.new(0, 427, 0, 25)
 				Item.AutoButtonColor = false
-				Item.Font = Enum.Font.Gotham
+				Item.Font = Enum.Font.Arial
 				Item.Text = addtext
 				Item.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Item.TextSize = 15.000
@@ -1832,7 +1832,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.BackgroundTransparency = 1.000
 			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
 			Title.Size = UDim2.new(0, 113, 0, 42)
-			Title.Font = Enum.Font.Gotham
+			Title.Font = Enum.Font.Arial
 			Title.Text = "Colorpicker"
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
@@ -1938,7 +1938,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Toggle.BackgroundTransparency = 1.000
 			Toggle.Position = UDim2.new(2.37430048, 0, 1.07157099, 0)
 			Toggle.Size = UDim2.new(0, 137, 0, 38)
-			Toggle.Font = Enum.Font.Gotham
+			Toggle.Font = Enum.Font.Arial
 			Toggle.Text = "Rainbow"
 			Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Toggle.TextSize = 15.000
@@ -1986,7 +1986,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			ConfirmTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			ConfirmTitle.BackgroundTransparency = 1.000
 			ConfirmTitle.Size = UDim2.new(0, 116, 0, 40)
-			ConfirmTitle.Font = Enum.Font.Gotham
+			ConfirmTitle.Font = Enum.Font.Arial
 			ConfirmTitle.Text = "Confirm"
 			ConfirmTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 			ConfirmTitle.TextSize = 15.000
@@ -2323,7 +2323,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.BackgroundTransparency = 1.000
 			Title.Position = UDim2.new(0.038480062, 0, 0, 0)
 			Title.Size = UDim2.new(0, 113, 0, 42)
-			Title.Font = Enum.Font.Gotham
+			Title.Font = Enum.Font.Arial
 			Title.Text = text
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
@@ -2373,7 +2373,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.BackgroundTransparency = 1.000
 			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
 			Title.Size = UDim2.new(0, 113, 0, 42)
-			Title.Font = Enum.Font.Gotham
+			Title.Font = Enum.Font.Arial
 			Title.Text = text
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
@@ -2411,7 +2411,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Description.BackgroundTransparency = 1.000
 			Description.Position = UDim2.new(-0.200942323, 0, 0.985714269, 0)
 			Description.Size = UDim2.new(0, 432, 0, 31)
-			Description.Font = Enum.Font.Gotham
+			Description.Font = Enum.Font.Arial
 			Description.Text = desc
 			Description.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Description.TextSize = 15.000
@@ -2433,7 +2433,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			TextBox.BackgroundTransparency = 1.000
 			TextBox.Size = UDim2.new(0, 161, 0, 26)
-			TextBox.Font = Enum.Font.Gotham
+			TextBox.Font = Enum.Font.Arial
 			TextBox.Text = ""
 			TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextBox.TextSize = 15.000
@@ -2598,7 +2598,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.BackgroundTransparency = 1.000
 			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
 			Title.Size = UDim2.new(0, 113, 0, 42)
-			Title.Font = Enum.Font.Gotham
+			Title.Font = Enum.Font.Arial
 			Title.Text = text
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
@@ -2636,7 +2636,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			BindLabel.BackgroundTransparency = 1.000
 			BindLabel.Position = UDim2.new(2.56011987, 0, 0, 0)
 			BindLabel.Size = UDim2.new(0, 113, 0, 42)
-			BindLabel.Font = Enum.Font.Gotham
+			BindLabel.Font = Enum.Font.Arial
 			BindLabel.Text = Key
 			BindLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 			BindLabel.TextSize = 15.000
