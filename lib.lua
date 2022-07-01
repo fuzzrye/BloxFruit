@@ -465,7 +465,7 @@ function library:window(title1, title2, key)
 		if p then
 			return
 		end
-		if i.KeyCode == key or Enum.KeyCode.LeftControl then
+		if i.KeyCode == key or i.KeyCode == Enum.KeyCode.LeftControl then
 			MainFrame.Visible = not MainFrame.Visible
 		end
 	end)
