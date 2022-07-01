@@ -196,13 +196,16 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					uitoggled = false
 					if FluxLib.Enabled then
 						MainFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-						FluxLib.Enabled = false
+						
+						delay(0.6, function()
+							FluxLib.Enabled = false
+						end)
 					else
 						FluxLib.Enabled = true
 						MainFrame:TweenSize(UDim2.new(0, 706, 0, 484), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 					end
 					
-					delay(0.7, function()
+					delay(0.6, function()
 						uitoggled = true
 					end)
 				end
