@@ -194,12 +194,13 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			if io.KeyCode == CloseBind then
 				if uitoggled == false then
 					MainFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-					uitoggled = true
-					wait(.5)
+					wait(.6)
 					FluxLib.Enabled = false
+					uitoggled = true
 				else
 					MainFrame:TweenSize(UDim2.new(0, 706, 0, 484), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 					FluxLib.Enabled = true
+					wait(0.6)
 					uitoggled = false
 				end
 			end
