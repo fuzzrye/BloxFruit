@@ -400,7 +400,7 @@ function library:window(title1, title2, key)
 
 		cloneTag.MouseButton1Click:Connect(function()
 			for i, v in pairs(MainFrame:GetChildren()) do
-				if v.Name == 'Title' or v.Name == 'buttonFrames' then
+				if v.Name == 'Title' or v.Name == 'buttonFrames' or v.Name == 'Notification' then
 				else
 					if v['Visible'] then
 						v.Visible = false
