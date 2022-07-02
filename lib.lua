@@ -64,7 +64,6 @@ Title.TextColor3 = Color3.fromRGB(255, 85, 0)
 Title.TextScaled = true
 Title.TextSize = 14.000
 Title.RichText = true
-Title.RichText = true
 Title.TextWrapped = true
 Title.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -377,13 +376,13 @@ local Toggles = {}
 
 function library:window(title1, title2, key)
 	key = key or Enum.KeyCode.RightControl
-	
+
 	UserInputService.InputBegan:Connect(function(i, p)
 		if i.KeyCode == key then
 			MainFrame.Visible = not MainFrame.Visible
 		end
 	end)
-	
+
 	Title.Text = Title.Text:format(title1, title2)
 
 	local window = {}
@@ -393,12 +392,12 @@ function library:window(title1, title2, key)
 		cloneTag.Visible = true
 		cloneTag.Parent = buttonFrames
 		cloneTag.Text = title
-		
+
 		local cloneTagFrame = TagFrameTempate:Clone()
 		cloneTagFrame.Visible = true
 		cloneTagFrame.Parent = MainFrame
 		cloneTagFrame.Name = title
-		
+
 		cloneTag.MouseButton1Click:Connect(function()
 			for i, v in pairs(MainFrame:GetChildren()) do
 				if v.Name == 'Title' or v.Name == 'buttonFrames' then
@@ -408,7 +407,7 @@ function library:window(title1, title2, key)
 					end
 				end
 			end
-			
+
 			cloneTagFrame.Visible = true
 		end)
 
@@ -420,110 +419,132 @@ function library:window(title1, title2, key)
 			buttonClone.Text = title
 			buttonClone.Parent = cloneTagFrame
 			buttonClone.Name = title
-
+			
+			local button = {}
+			
 			if func then
 				buttonClone.MouseButton1Click:Connect(function()
 					func()
 				end)
 			end
+			
+			function button:edit(title)
+				buttonClone.Name = title
+				buttonClone.Text = title
+			end
+			
+			return button
 		end
-		
+
 		function tag:line()
 			local lineClone = LineTemplate:Clone()
 			lineClone.Parent = cloneTagFrame
 			lineClone.Visible = true
 			lineClone.Name = 'Line'
 		end
-		
+
 		function tag:toggle(title, func)
 			local toggleClone = ToggleTemplate:Clone()
 			toggleClone.Parent = cloneTagFrame
 			toggleClone.Visible = true
 			toggleClone.Name = title
 			toggleClone.TextButton.TextLabel.Text = title
-			
+
 			Toggles[func] = false
 			
+			local toggle = {}
+			
+			function toggle:edit(title, value)
+				toggleClone.Name = title
+				toggleClone.TextButton.TextLabel.Text = title
+				Toggles[func] = value or Toggles[func]
+				toggleClone.TextButton.Check.Visible = Toggles[func]
+				func(Toggles[func])
+			end
+
 			toggleClone.TextButton.MouseButton1Click:Connect(function()
 				Toggles[func] = not Toggles[func]
 				toggleClone.TextButton.Check.Visible = Toggles[func]
 				func(Toggles[func])
 			end)
+			
+			return toggle
 		end
-		
+
 		function tag:dropdown(title, arrays, func)
 			local dropdownClone = DropdownTemplate:Clone()
 			dropdownClone.Parent = cloneTagFrame
 			dropdownClone.Visible = true
 			dropdownClone.Name = title
 			dropdownClone.TextButton.TextLabel.Text = title
-			
+
 			if typeof(arrays) ~= 'table' then
 				arrays = {}
 			end
-			
+
 			dropdownClone.TextButton.MouseButton1Click:Connect(function()
 				dropdownClone.Frame.Visible = not dropdownClone.Frame.Visible
-				
+
 				dropdownClone.TextButton.Drop.Visible = not dropdownClone.Frame.Visible
-				
+
 				dropdownClone.TextButton.Up.Visible = dropdownClone.Frame.Visible
 			end)
-			
+
 			for i, v in pairs(arrays) do
 				local dropbuttonClone = DropButtonTemplate:Clone()
 				dropbuttonClone.Parent = dropdownClone.Frame
 				dropbuttonClone.Visible = true
 				dropbuttonClone.Name = v
 				dropbuttonClone.Text = v
-				
+
 				dropbuttonClone.MouseButton1Click:Connect(function()
 					dropdownClone.TextButton.TextLabel.Text = title .. ' : ' .. v
-					
+
 					func(v)
 				end)
 			end
-			
+
 			local dropdown = {}
-			
-			function dropdown:edit(arrays)
+
+			function dropdown:edit(title, arrays)
+				dropdownClone.Name = title
 				func(nil)
 				dropdownClone.TextButton.TextLabel.Text = title
-				
+
 				dropdownClone.Frame:ClearAllChildren()
-				
+
 				if typeof(arrays) ~= 'table' then
 					arrays = {}
 				end
-				
+
 				for i, v in pairs(arrays) do
 					local dropbuttonClone = DropButtonTemplate:Clone()
 					dropbuttonClone.Parent = dropdownClone.Frame
 					dropbuttonClone.Visible = true
 					dropbuttonClone.Name = v
 					dropbuttonClone.Text = v
-					
+
 					dropbuttonClone.MouseButton1Click:Connect(function()
 						dropdownClone.TextButton.TextLabel.Text = title .. ' : ' .. v
-						
+
 						func(v)
 					end)
 				end
 			end
-			
+
 			return dropdown
 		end
 		return tag
 	end
-	
+
 	function window:notify(title, lifetime)
 		local notifyClone = NotifyTemplate:Clone()
 		notifyClone.Parent = Notification
 		notifyClone.Visible = true
 		notifyClone.TextLabel.Text = title
-		
+
 		game.Debris:AddItem(notifyClone, lifetime)
-		
+
 		notifyClone.TextButton.MouseButton1Click:Connect(function()
 			game.Debris:AddItem(notifyClone, 0)
 		end)
