@@ -394,7 +394,7 @@ function library:window(title1, title2, key)
 		cloneTag.Text = title
 
 		local cloneTagFrame = TagFrameTempate:Clone()
-		cloneTagFrame.Visible = true
+		cloneTagFrame.Visible = false
 		cloneTagFrame.Parent = MainFrame
 		cloneTagFrame.Name = title
 
