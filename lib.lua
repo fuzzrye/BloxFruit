@@ -270,6 +270,7 @@ Notification.BackgroundTransparency = 1.000
 Notification.Position = UDim2.new(0, 0, 0.123809524, 0)
 Notification.Size = UDim2.new(0, 566, 0, 276)
 Notification.ZIndex = 5
+Notification.Visible = true
 
 UIListLayout_5.Parent = Notification
 UIListLayout_5.HorizontalAlignment = Enum.HorizontalAlignment.Right
@@ -401,6 +402,7 @@ function library:window(title1, title2, key)
 		cloneTag.MouseButton1Click:Connect(function()
 			for i, v in pairs(MainFrame:GetChildren()) do
 				if v.Name == 'Title' or v.Name == 'buttonFrames' or v.Name == 'Notification' then
+					v.Visible = true
 				else
 					if v['Visible'] then
 						v.Visible = false
