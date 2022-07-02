@@ -419,20 +419,20 @@ function library:window(title1, title2, key)
 			buttonClone.Text = title
 			buttonClone.Parent = cloneTagFrame
 			buttonClone.Name = title
-			
+
 			local button = {}
-			
+
 			if func then
 				buttonClone.MouseButton1Click:Connect(function()
 					func()
 				end)
 			end
-			
+
 			function button:edit(title)
 				buttonClone.Name = title
 				buttonClone.Text = title
 			end
-			
+
 			return button
 		end
 
@@ -451,9 +451,9 @@ function library:window(title1, title2, key)
 			toggleClone.TextButton.TextLabel.Text = title
 
 			Toggles[func] = false
-			
+
 			local toggle = {}
-			
+
 			function toggle:edit(title, value)
 				toggleClone.Name = title
 				toggleClone.TextButton.TextLabel.Text = title
@@ -467,7 +467,7 @@ function library:window(title1, title2, key)
 				toggleClone.TextButton.Check.Visible = Toggles[func]
 				func(Toggles[func])
 			end)
-			
+
 			return toggle
 		end
 
@@ -530,6 +530,10 @@ function library:window(title1, title2, key)
 						func(v)
 					end)
 				end
+			end
+			
+			function dropdown:set(item)
+				dropdownClone.TextButton.TextLabel.Text = title .. ' : ' .. item
 			end
 
 			return dropdown
