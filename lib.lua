@@ -457,7 +457,7 @@ function library:window(title1, title2, key)
 			function toggle:edit(title, value)
 				toggleClone.Name = title
 				toggleClone.TextButton.TextLabel.Text = title
-				Toggles[func] = value or Toggles[func]
+				Toggles[func] = value == nil and Toggles[func] or value
 				toggleClone.TextButton.Check.Visible = Toggles[func]
 				func(Toggles[func])
 			end
